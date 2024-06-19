@@ -1,4 +1,4 @@
-!pip install --upgrade ucimlrepo
+# !pip install --upgrade ucimlrepo
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -23,8 +23,8 @@ data['mpg'] = y
 # Handle missing values
 data.dropna(subset=['horsepower'], inplace=True)
 
-# Drop unnecessary columns --> model and origin are dropped, by default the car name is not inluded. 
-columns_to_drop = [ 'model_year', 'origin']  
+# Drop unnecessary columns --> model and origin are dropped, by default the car name is not inluded.
+columns_to_drop = [ 'model_year', 'origin']
 data.drop(columns=columns_to_drop, inplace=True)
 
 # Normalize/scale the data
@@ -39,13 +39,13 @@ y = scaled_data['mpg'].values
 # Split into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) # 80/20 split
 
-# Add a column of ones to include the intercept in the model --> bias 
+# Add a column of ones to include the intercept in the model --> bias
 X_train = np.hstack([np.ones((X_train.shape[0], 1)), X_train])
 X_test = np.hstack([np.ones((X_test.shape[0], 1)), X_test])
 
 # Initialize parameters for gradient descent
 alpha = 0.2     # Learning rate --> variable learning rates used. such as 0.0001, 0.5, 1, etc
-iterations = 200  # Number of iterations  --> varaible iterations used such as 100, 1500, 1000, 10000 
+iterations = 200  # Number of iterations  --> varaible iterations used such as 100, 1500, 1000, 10000
 tolerance = 1e-6  # Tolerance for convergence
 
 print(f"Learning Rate: {alpha}")
@@ -99,7 +99,7 @@ train_predictions = X_train.dot(theta)
 train_mse = compute_mse(X_train, y_train, theta)
 print(f"MSE on training set: {train_mse}")
 
-# Compute and print explained variance and R² scores for training set 
+# Compute and print explained variance and R² scores for training set
 explained_variance_training = explained_variance_score(y_train, train_predictions)
 r2_training = r2_score(y_train, train_predictions)
 print(f"Explained Variance on training set: {explained_variance_training}")
@@ -134,7 +134,7 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
-# Function to plot Output Variable (MPG) vs. Important Attribute (Horsepower) --> only needed to printed once. same data as part 2 since we are using the same values 
+# Function to plot Output Variable (MPG) vs. Important Attribute (Horsepower) --> only needed to printed once. same data as part 2 since we are using the same values
 def plot_output_vs_attribute(attribute_values, output_values):
     plt.figure(figsize=(7, 4))
     plt.scatter(attribute_values, output_values, color='b', alpha=0.6)
