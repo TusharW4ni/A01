@@ -145,5 +145,5 @@ def plot_output_vs_attribute(attribute_values, output_values):
     plt.show()
 
 # Plot Output Variable (MPG) vs. Horsepower for test set
-horsepower_test = X_test[:, 1]  # Assuming 'horsepower' is the first column after intercept
+horsepower_test = X_test[:, 3]  # Assuming 'horsepower' is the first column after intercept
 plot_output_vs_attribute(horsepower_test, test_predictions)
