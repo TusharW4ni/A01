@@ -1,0 +1,15 @@
+Are you satisfied that the package has found the best solution? Explain.
+
+No, I am not satisfied with the solution obtained using the Scikit-learn package. The extremely high MSE and negative R² score indicate that the model did not perform well. This suggests that either the data has issues, or the model parameters need to be tuned further. The results imply that the linear regression model did not capture the relationship between the features and the target variable adequately.
+
+Log Data:
+{
+    'iterations': len(losses),
+    'learning_rate': 'optimal',
+    'mse': mse,
+    'r2': r2,
+    'coefficients': coefficients.tolist()
+}
+
+Log Data:
+{'iterations': 3, 'learning_rate': 'optimal', 'mse': np.float64(0.1905369143382795), 'r2': 0.7731698198836389, 'coefficients': [-0.11215659054753253, -0.12271208901869883, -0.14870504428862558, -0.2774187853390189, -0.049887946636763436, 0.30781555403701627, 0.14667353439534855]}
